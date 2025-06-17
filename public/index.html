@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SENKOU GO - COMMUNITY REVIVAL | CTO</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&family=Rajdhani:wght@300;400;600;700;900&family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Rajdhani", sans-serif;
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* REVOLUTIONARY BACKGROUND */
+      .bg-matrix {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          #0a0a0a 0%,
+          #1a0a1a 25%,
+          #0a1a0a 50%,
+          #1a1a0a 75%,
+          #0a0a1a 100%
+        );
+        background-size: 400% 400%;
+        animation: matrixShift 8s ease infinite;
+        z-index: -2;
+      }
+
+      @keyframes matrixShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        25% {
+          background-position: 100% 0%;
+        }
+        50% {
+          background-position: 0% 100%;
+        }
+        75% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .bg-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("banner.jpg") center/cover;
+        opacity: 0.1;
+        filter: contrast(1.5) brightness(0.8);
+        z-index: -1;
+      }
+
+      /* REBELLION PARTICLES */
+      .rebellion-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        background: #ff4757;
+        width: 4px;
+        height: 4px;
+        animation: rebellion 6s linear infinite;
+      }
+
+      @keyframes rebellion {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-20px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* MAIN HERO SECTION */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 60px 20px;
+        background: radial-gradient(
+            circle at 30% 20%,
+            rgba(255, 71, 87, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 80%,
+            rgba(46, 213, 115, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(0, 123, 255, 0.2) 0%,
+            transparent 60%
+          );
+      }
+
+      /* CTO BADGE */
+      .cto-badge {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        background: linear-gradient(135deg, #ff4757, #ff3742);
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-family: "Orbitron", monospace;
+        font-weight: 900;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        box-shadow: 0 0 30px rgba(255, 71, 87, 0.6);
+        animation: ctoPulse 2s ease-in-out infinite;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      @keyframes ctoPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 30px rgba(255, 71, 87, 0.6);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 40px rgba(255, 71, 87, 0.8);
+        }
+      }
+
+      /* COMMUNITY LOGO */
+      .community-logo {
+        position: relative;
+        margin-bottom: 40px;
+      }
+
+      .logo-container {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #ff4757, #2ed573, #007bff);
+        padding: 8px;
+        animation: communityRotate 10s linear infinite;
+      }
+
+      @keyframes communityRotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .logo-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        background: #000;
+      }
+
+      .logo-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .logo-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.2) 50%,
+          transparent 70%
+        );
+        animation: logoShine 3s ease-in-out infinite;
+      }
+
+      @keyframes logoShine {
+        0% {
+          transform: translateX(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(200%) rotate(45deg);
+        }
+      }
+
+      /* REVOLUTIONARY TITLE */
+      .hero-title {
+        font-family: "Russo One", sans-serif;
+        font-size: 5rem;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 20px;
+        background: linear-gradient(45deg, #ff4757, #2ed573, #007bff, #ffa502);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: titleWave 4s ease-in-out infinite;
+        text-shadow: 0 0 50px rgba(255, 71, 87, 0.5);
+        line-height: 1.1;
+      }
+
+      @keyframes titleWave {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        25% {
+          background-position: 100% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        75% {
+          background-position: 0% 100%;
+        }
+      }
+
+      .hero-subtitle {
+        font-family: "Orbitron", monospace;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 15px;
+        color: #2ed573;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        animation: subtitleGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes subtitleGlow {
+        0% {
+          text-shadow: 0 0 20px rgba(46, 213, 115, 0.5);
+          opacity: 0.8;
+        }
+        100% {
+          text-shadow: 0 0 30px rgba(46, 213, 115, 1),
+            0 0 40px rgba(46, 213, 115, 0.6);
+          opacity: 1;
+        }
+      }
+
+      .hero-tagline {
+        font-size: 1.3rem;
+        text-align: center;
+        margin-bottom: 50px;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 700px;
+        line-height: 1.6;
+        font-weight: 300;
+      }
+
+      /* REVOLUTION STATS */
+      .revolution-stats {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 60px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 71, 87, 0.3);
+        min-width: 150px;
+        transition: all 0.3s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-10px);
+        border-color: rgba(255, 71, 87, 0.8);
+        box-shadow: 0 20px 40px rgba(255, 71, 87, 0.3);
+      }
+
+      .stat-number {
+        font-family: "Orbitron", monospace;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: #ff4757;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* COMMUNITY TAKEOVER SECTION */
+      .cto-section {
+        background: rgba(255, 71, 87, 0.05);
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(255, 71, 87, 0.3);
+        border-radius: 25px;
+        padding: 40px;
+        margin: 40px 0;
+        position: relative;
+        overflow: hidden;
+        max-width: 700px;
+        width: 100%;
+      }
+
+      .cto-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 71, 87, 0.1),
+          transparent
+        );
+        animation: ctoScan 5s ease-in-out infinite;
+      }
+
+      @keyframes ctoScan {
+        0% {
+          left: -100%;
+        }
+        50% {
+          left: 100%;
+        }
+        100% {
+          left: -100%;
+        }
+      }
+
+      .cto-title {
+        font-family: "Russo One", sans-serif;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ff4757;
+        text-transform: uppercase;
+      }
+
+      .cto-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        z-index: 2;
+      }
+
+      /* CONTRACT ADDRESS */
+      .contract-section {
+        background: rgba(46, 213, 115, 0.05);
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(46, 213, 115, 0.3);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 40px 0;
+        max-width: 600px;
+        width: 100%;
+        position: relative;
+      }
+
+      .contract-title {
+        font-family: "Orbitron", monospace;
+        font-size: 1.5rem;
+        color: #2ed573;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .contract-input-group {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .contract-input {
+        flex: 1;
+        padding: 15px 20px;
+        background: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(46, 213, 115, 0.5);
+        border-radius: 12px;
+        color: #fff;
+        font-family: "Orbitron", monospace;
+        font-size: 0.9rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .contract-input:focus {
+        outline: none;
+        border-color: #2ed573;
+        box-shadow: 0 0 20px rgba(46, 213, 115, 0.5);
+      }
+
+      .copy-button {
+        background: linear-gradient(45deg, #2ed573, #20bf6b);
+        border: none;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-family: "Orbitron", monospace;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .copy-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .copy-button:hover::before {
+        left: 100%;
+      }
+
+      .copy-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(46, 213, 115, 0.4);
+      }
+
+      /* ACTION BUTTONS */
+      .action-buttons {
+        display: flex;
+        gap: 25px;
+        margin: 50px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .action-btn {
+        padding: 18px 35px;
+        border: 2px solid;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(15px);
+        color: white;
+        font-family: "Orbitron", monospace;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .action-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 70%
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s;
+      }
+
+      .action-btn:hover::before {
+        transform: translateX(100%);
+      }
+
+      .btn-chart {
+        border-color: #007bff;
+        color: #007bff;
+        box-shadow: 0 0 25px rgba(0, 123, 255, 0.3);
+      }
+
+      .btn-chart:hover {
+        background: rgba(0, 123, 255, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 123, 255, 0.4);
+      }
+
+      .btn-buy {
+        border-color: #ffa502;
+        color: #ffa502;
+        box-shadow: 0 0 25px rgba(255, 165, 2, 0.3);
+      }
+
+      .btn-buy:hover {
+        background: rgba(255, 165, 2, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(255, 165, 2, 0.4);
+      }
+
+      /* SOCIAL REVOLUTION */
+      .social-revolution {
+        margin-top: 50px;
+      }
+
+      .social-title {
+        font-family: "Russo One", sans-serif;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 30px;
+        color: #ff4757;
+        text-transform: uppercase;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        position: relative;
+      }
+
+      .social-link::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border-radius: 50%;
+        border: 2px solid;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        animation: socialPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes socialPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.3;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.8;
+        }
+      }
+
+      .social-link:hover::before {
+        opacity: 1;
+      }
+
+      .social-link:hover {
+        transform: translateY(-10px) scale(1.1);
+      }
+
+      .telegram {
+        background: linear-gradient(45deg, #0088cc, #006699);
+        box-shadow: 0 0 30px rgba(0, 136, 204, 0.4);
+      }
+      .telegram::before {
+        border-color: #0088cc;
+      }
+
+      .twitter {
+        background: linear-gradient(45deg, #1da1f2, #0d8bd9);
+        box-shadow: 0 0 30px rgba(29, 161, 242, 0.4);
+      }
+      .twitter::before {
+        border-color: #1da1f2;
+      }
+
+      .discord {
+        background: linear-gradient(45deg, #7289da, #5b6eae);
+        box-shadow: 0 0 30px rgba(114, 137, 218, 0.4);
+      }
+      .discord::before {
+        border-color: #7289da;
+      }
+
+      /* STORY SECTION */
+      .story-section {
+        min-height: 100vh;
+        padding: 100px 20px;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 71, 87, 0.1) 0%,
+            rgba(46, 213, 115, 0.1) 100%
+          ),
+          url("banner.jpg") center/cover fixed;
+        background-attachment: fixed;
+        position: relative;
+      }
+
+      .story-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.9),
+          rgba(26, 26, 46, 0.85)
+        );
+      }
+
+      .story-container {
+        position: relative;
+        z-index: 2;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 60px 40px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 71, 87, 0.2);
+        border-radius: 30px;
+        transition: all 0.5s ease;
+      }
+
+      .story-container:hover {
+        border-color: rgba(255, 71, 87, 0.5);
+        backdrop-filter: blur(30px);
+      }
+
+      .story-title {
+        font-family: "Russo One", sans-serif;
+        font-size: 3.5rem;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 40px;
+        background: linear-gradient(45deg, #ff4757, #2ed573, #007bff);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: storyShift 4s ease-in-out infinite;
+      }
+
+      @keyframes storyShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .story-text {
+        font-size: 1.3rem;
+        line-height: 1.9;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 25px;
+        text-align: justify;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .story-text::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, #ff4757, #2ed573);
+        border-radius: 2px;
+      }
+
+      .story-text:first-of-type::first-letter {
+        font-size: 4.5rem;
+        font-family: "Russo One", sans-serif;
+        float: left;
+        line-height: 1;
+        margin: 0 12px 0 0;
+        color: #ff4757;
+        text-shadow: 0 0 20px rgba(255, 71, 87, 0.8);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 3rem;
+        }
+        .hero-subtitle {
+          font-size: 1.3rem;
+        }
+        .hero-tagline {
+          font-size: 1.1rem;
+        }
+        .cto-badge {
+          top: 20px;
+          right: 20px;
+          font-size: 0.9rem;
+          padding: 10px 20px;
+        }
+        .logo-container {
+          width: 200px;
+          height: 200px;
+        }
+        .revolution-stats {
+          gap: 20px;
+        }
+        .stat-item {
+          min-width: 120px;
+          padding: 15px;
+        }
+        .action-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        .contract-input-group {
+          flex-direction: column;
+        }
+        .social-links {
+          gap: 20px;
+        }
+        .social-link {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+        .story-title {
+          font-size: 2.5rem;
+        }
+        .story-container {
+          padding: 40px 20px;
+          margin: 20px;
+        }
+        .story-text {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+        .cto-section,
+        .contract-section {
+          margin: 20px 10px;
+          padding: 25px;
+        }
+        .action-btn {
+          padding: 15px 25px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Matrix Background -->
+    <div class="bg-matrix"></div>
+    <div class="bg-overlay"></div>
+
+    <!-- Rebellion Particles -->
+    <div class="rebellion-particles" id="particles"></div>
+
+    <!-- CTO Badge -->
+    <div class="cto-badge"><i class="fas fa-users"></i> CTO</div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- Community Logo -->
+      <div class="community-logo">
+        <div class="logo-container">
+          <div class="logo-inner">
+            <img src="logo.jpg" alt="Senkou Go Community" />
+            <div class="logo-overlay"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revolutionary Title -->
+      <h1 class="hero-title">SENKOU GO</h1>
+      <h2 class="hero-subtitle">Community Revival</h2>
+      <p class="hero-tagline">
+        From the ashes of abandonment, the community rises. The legend lives on
+        through us, stronger than ever.
+      </p>
+
+      <!-- Revolution Stats -->
+      <div class="revolution-stats">
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Community Owned</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Active</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Potential</span>
+        </div>
+      </div>
+
+      <!-- CTO Story -->
+      <div class="cto-section">
+        <h3 class="cto-title">Community Take Over</h3>
+        <p class="cto-text">
+          When the original developers abandoned the project, the community
+          refused to let the legacy die. We took control, revived the spirit,
+          and now we're building something stronger than ever before. This is
+          our token, our future, our revolution.
+        </p>
+      </div>
+
+      <!-- Contract Address -->
+      <div class="contract-section">
+        <h3 class="contract-title">Contract Address</h3>
+        <div class="contract-input-group">
+          <input
+            type="text"
+            class="contract-input"
+            id="contractAddress"
+            value="0x57033Cb45b0B754232D8F3B05931835E29C576a2"
+            readonly
+          />
+          <button class="copy-button" onclick="copyContract()">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <a href="#" class="action-btn btn-chart" onclick="viewChart()">
+          <i class="fas fa-chart-line"></i> View Chart
+        </a>
+        <a href="#" class="action-btn btn-buy" onclick="buyToken()">
+          <i class="fas fa-rocket"></i> Buy Now
+        </a>
+      </div>
+
+      <!-- Social Revolution -->
+      <div class="social-revolution">
+        <h3 class="social-title">Join The Revolution</h3>
+        <div class="social-links">
+          <a
+            href="https://t.me/senkougoinucto"
+            class="social-link telegram"
+            target="_blank"
+          >
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+      <div class="story-container">
+        <h2 class="story-title">THE LEGACY CONTINUES</h2>
+        <p class="story-text">
+          Senkou Go Araki Kensha, born around 1949, was a magnificent red-coated
+          Shiba Inu from the prestigious Araki Kensha kennel. This legendary
+          canine was sired by the foundational dog Naka Go Akashisou and out of
+          Nachihime Go Keiunsou of the esteemed Keiunsou line.
+        </p>
+        <p class="story-text">
+          In the aftermath of World War II, when the Shiba Inu breed faced near
+          extinction, Senkou emerged as a beacon of hope. Just as Senkou
+          preserved his bloodline through dedication and resilience, our
+          community has risen to preserve this project through the same
+          unwavering spirit.
+        </p>
+        <p class="story-text">
+          When the original developers abandoned this token, they thought they
+          could destroy what we had built together. But they underestimated the
+          power of community. Like Senkou's legacy that lives on through
+          generations, our project continues stronger than ever through the
+          collective will of believers.
+        </p>
+        <p class="story-text">
+          Today, we carry forward both legacies - that of the legendary Shiba
+          Inu and that of a community that refused to give up. Together, we're
+          not just reviving a token; we're building a movement that honors the
+          past while creating an unstoppable future.
+        </p>
+      </div>
+    </section>
+
+    <script>
+      // Rebellion Particles
+      function createParticle() {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.animationDuration = Math.random() * 3 + 3 + "s";
+        particle.style.animationDelay = Math.random() * 2 + "s";
+
+        const colors = ["#ff4757", "#2ed573", "#007bff", "#ffa502"];
+        particle.style.background =
+          colors[Math.floor(Math.random() * colors.length)];
+
+        document.getElementById("particles").appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();
+        }, 6000);
+      }
+
+      // Create particles continuously
+      setInterval(createParticle, 300);
+
+      // Functions
+      function copyContract() {
+        const contractAddress = document.getElementById("contractAddress");
+        contractAddress.select();
+        contractAddress.setSelectionRange(0, 99999);
+
+        navigator.clipboard.writeText(contractAddress.value).then(() => {
+          const copyBtn = document.querySelector(".copy-button");
+          const originalHTML = copyBtn.innerHTML;
+          copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          copyBtn.style.background = "linear-gradient(45deg, #2ed573, #20bf6b)";
+
+          setTimeout(() => {
+            copyBtn.innerHTML = originalHTML;
+            copyBtn.style.background =
+              "linear-gradient(45deg, #2ed573, #20bf6b)";
+          }, 2000);
+        });
+      }
+
+      function viewChart() {
+        window.open(
+          "https://dexscreener.com/ethereum/0x57033Cb45b0B754232D8F3B05931835E29C576a2",
+          "_blank"
+        );
+      }
+
+      function buyToken() {
+        window.open(
+          "https://app.uniswap.org/#/swap?outputCurrency=0x57033Cb45b0B754232D8F3B05931835E29C576a2",
+          "_blank"
+        );
+      }
+
+      // Enhanced Animations
+      document.addEventListener("DOMContentLoaded", () => {
+        // Parallax scrolling effect
+        window.addEventListener("scroll", () => {
+          const scrolled = window.pageYOffset;
+          const parallaxElements = document.querySelectorAll(
+            ".bg-overlay, .story-section"
+          );
+
+          parallaxElements.forEach((element) => {
+            const speed = 0.5;
+            element.style.transform = `translateY(${scrolled * speed}px)`;
+          });
+        });
+
+        // Dynamic stats counter
+        const statNumbers = document.querySelectorAll(".stat-number");
+        statNumbers.forEach((stat) => {
+          if (stat.textContent !== "∞" && stat.textContent !== "24/7") {
+            const target = parseInt(stat.textContent);
+            let current = 0;
+            const increment = target / 100;
+
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                current = target;
+                clearInterval(timer);
+              }
+              stat.textContent = Math.floor(current) + "%";
+            }, 30);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
